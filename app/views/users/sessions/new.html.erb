@@ -14,7 +14,7 @@
         <h2>Login</h2>
         
         <%= f.label :Username %><br />
-        <%= f.email_field :login, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.text_field :login, autofocus: true, class: "form-control" %>
 
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
