@@ -1,26 +1,31 @@
-<h2>Log in</h2>
+<%= stylesheet_link_tag('styles') %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :login %><br />
-    <%= f.email_field :login, autofocus: true, autocomplete: "email" %>
+<section class="container-main">
+  <div class="left-half">
+    <%= image_tag "MG_BLOGS_LOGO.png", :class => "style_logo1"  %>
+    <%= image_tag "MG_LOGO.svg", :class => "style_logo2"  %> 
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <div class="right-half">
+    <p class="paragraph-signin">New to Mashup Garage Blogs? <%= link_to "Sign up", new_user_registration_path(@users) %></p>
+    <div class="container-form">
+      <div class="field form-group">
+        <h2>Login</h2>
+        
+        <%= f.label :Username %><br />
+        <%= f.text_field :login, autofocus: true, class: "form-control" %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+
+        <%= link_to "Forgot your password?", 'password/new' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Log in", :class => "button-login" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
+</section>
 <% end %>
-
-<%= render "users/shared/links" %>
