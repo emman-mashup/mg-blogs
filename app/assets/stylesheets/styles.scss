@@ -1,159 +1,112 @@
-@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url('https://fonts.cdnfonts.com/css/satoshi');
 
 //
-$darkbg-color: #17181c;
-$button-color: #6366f1;
-$blogsbg-color: #ebf0f4;
+$darkbg-color: #17181C;
+$button-color: #6366F1;
+$blogsbg-color: #EBF0F4;
 
 * {
-  font-family: satoshi;
-  padding: 0;
-  margin: 0;
+ font-family: satoshi;
+ padding: 0;
+ margin: 0;
 }
 
-html {
-  height: 100%;
-}
 // @media only screen and (max-width: 768px) {
 //   * {
 //     background-color: black;
 //   }
 // }
 
-.container-main {
+.container-main{
   display: flex;
   height: 100%;
 }
 
 .left-half {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 40%;
-  background-color: $darkbg-color;
-  overflow: hidden;
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   height: 100%;
+   width: 40%;
+   background-color: $darkbg-color;
+   overflow: hidden;
 
-  > .style_logo1 {
-    margin: 7%;
-    height: 3%;
-  }
+   >.style_logo1 {
+   margin: 7%;
+   height: 3%;
+   }
 
-  > .style_logo2 {
+   >.style_logo2 {
     position: absolute;
     width: 100%;
     height: 100%;
     left: -25%;
     top: 30%;
     opacity: 0.2;
-  }
-}
+   }
+ }
 
 .right-half {
-  justify-content: center;
-  position: absolute;
-  right: 0px;
-  width: 50%;
-}
+   justify-content: center;
+   position: absolute;
+   right: 0px;
+   width: 50%;
+  }
 
-.button-login {
-  background-color: $button-color;
-  width: 360px;
-  height: 40px;
-  border-radius: 4px;
-  border: none;
-  color: #ffffff;
-  margin-top: 16px;
-  transition: 0.3s;
-  &:hover {
+  .button-login {
+   background-color: $button-color;
+   width: 360px;
+   height: 40px;
+   border-radius: 4px;
+   border: none;
+   color: #FFFFFF;
+   margin-top: 16px;
+   transition: .3s;
+   &:hover {
     animation: pulse 1s infinite;
-    transition: 0.3s;
+    transition: .3s;
+   }
+   @keyframes pulse {
+     0% {
+       transform: scale(1);
+     }
+     70% {
+       transform: scale(.9);
+     }
+       100% {
+       transform: scale(1);
+     }
+   }
   }
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    70% {
-      transform: scale(0.9);
-    }
-    100% {
-      transform: scale(1);
-    }
+
+  .container-form{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20%;
+   margin-right: 20%;
   }
-}
 
-.container-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20%;
-  margin-right: 20%;
-}
+  .form-control {
+   width: 360px;
+   height: 48px;
+   margin-bottom: 8px;
+  }
 
-.form-control {
-  width: 360px;
-  height: 48px;
-  margin-bottom: 8px;
-}
+  .paragraph-signin {
+   position: absolute;
+   height: 2%;
+   left: 60%;
+   margin-top: 3%;
+  }
 
-.paragraph-signin {
-  position: absolute;
-  height: 2%;
-  left: 60%;
-  margin-top: 3%;
-}
+  .paragraph-signup {
+   width: 365px;
+  }
 
-.paragraph-signup {
-  width: 365px;
-}
-
-.paragraph-fpassword {
-  width: 365px;
-  text-align: center;
-  margin-top: 5%;
-}
-
-.navbar-main {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 1%;
-  width: 100%;
-}
-
-.blogs-loginbutton {
-  background-color: #6366f1;
-  color: white;
-  width: 90px;
-  height: 40px;
-  border-radius: 4px;
-}
-
-.blogslogo-style {
-  margin-top: 4px;
-  height: 100%;
-}
-
-.blogs-search {
-  width: 560px;
-  height: 48px;
-  border-radius: 4px;
-  border: none;
-  background-color: #ecf1f3;
-}
-
-.blogs-navbutton {
-  margin-right: 2%;
-  display: flex;
-  flex-direction: row;
-}
-
-.login-link {
-  margin-top: 5%;
-  margin-right: 30%;
-}
-
-.body {
-  margin: 2%;
-  background-color: $blogsbg-color;
-}
+  .paragraph-fpassword {
+   width: 365px;
+   text-align: center;
+   margin-top: 5%;
+  }
