@@ -47,6 +47,9 @@ gem "bootsnap", require: false
 # Auth gems
 gem "devise"
 
+# JSON serrializer
+gem "jsonapi-serializer"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
