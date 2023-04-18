@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root "users#index"
+  #TODO set to user homepage/feed instead of users list
+  root "blogs#index"
 
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
 

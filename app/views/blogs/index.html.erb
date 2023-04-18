@@ -1,1 +1,82 @@
+<!-- <p style="color: green"><%= notice %></p>
+
+<h1>Blogs</h1>
+
+<div id="blogs">
+  <% @blogs.each do |blog| %>
+    <%= render blog %>
+    <p>
+      <%= link_to "Show this blog", blog %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New blog", new_blog_path %>
+-->
+<%= stylesheet_link_tag('styles') %>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="navbar-main">
+    <div class="blogslogo-style">
+      <%= image_tag "MG_BLOGS_LOGO.svg", :class => ""  %>
+    </div>
+    
+    <div class="form-group has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control blogs-search" placeholder="Search Post">
+    </div>
+    
+    <div class="blogs-navbutton">
+      <% if user_signed_in? %>
+        <%= current_user.username %>
+        <%= link_to "Sign out", signout_path %>
+      <% else %>
+
+      <%= link_to "Login", user_session_path(@users), class: "login-link" %>
+      <%= button_to "Sign up", new_user_registration_path(@users), :method => :get, class: "blogs-loginbutton" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="body">
+  <div class="row mt-3">
+    <div class="col">
+      <p class="h4">Trending today</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">ez</div>
+    <div class="col-sm-3">ez</div>
+    <div class="col-sm-3">ez</div>
+    <div class="col-sm-3">ez</div>
+  </div><hr>
+
+  <div class="row mt-3">
+    <div class="col">
+      <p class="h4">Recent posts</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">LEFT</div>
+    <div class="col-4">
+      <p class="h5">Popular Tags</p>
+
+      <div class="card">
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 <blogs-dashboard></blogs-dashboard>
