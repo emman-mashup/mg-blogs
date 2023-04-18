@@ -1,16 +1,40 @@
-<h2>Forgot your password?</h2>
+<%= stylesheet_link_tag('styles') %>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
+  <section class="container-main">
+    <div class="left-half">
+      <%= image_tag "MG_BLOGS_LOGO.png", :class => "style_logo1"  %>
+      <%= image_tag "MG_LOGO.svg", :class => "style_logo2"  %> 
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="right-half">
+      <p class="paragraph-signin">Remembered your account? <%= link_to "Sign in", user_session_path(@users) %></p>
+      <div class="container-form">
+        <div class="field form-group">
+          <h2>Forgot password?</h2>
+          
+          <p class="paragraph-signup">
+            Enter the email address you used when you joined and we'll send you instruction to reset your password.
+          </p>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+          <p class="paragraph-signup">
+            For security reasons, we do NOT store your password. So rest assured that we will never send you password via email.
+          </p>
+
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+
+          <div class="actions">
+            <%= f.submit "Send Reset Instructions", :class => "button-login" %>
+          </div>
+          
+          <p class="paragraph-fpassword"> 
+            <%= link_to "Didn't receive confirmation instructions?", '' %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
 <% end %>
-
-<%= render "users/shared/links" %>

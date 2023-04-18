@@ -1,25 +1,40 @@
-<h2>Change your password</h2>
+<%= stylesheet_link_tag('styles') %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+  <section class="container-main">
+    <div class="left-half">
+      <%= image_tag "MG_BLOGS_LOGO.png", :class => "style_logo1"  %>
+      <%= image_tag "MG_LOGO.svg", :class => "style_logo2"  %> 
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="right-half">
+      <div class="container-form">
+        <div class="field form-group">
+          <h2>Password Reset</h2>
+          
+          <p class="paragraph-signup">
+            Your new password must be different from your previous passwords.
+          </p>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
+          <%= f.label :password, "New Password" %><br />
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+
+          <%= f.label :password_confirmation, "Confirm New Password", class: "form-control" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+
+          <div class="actions">
+            <%= f.submit "Change my password", :class => "button-login" %>
+          </div>
+          
+          <p class="paragraph-fpassword"> 
+            <%= link_to "Didn't receive confirmation instructions?", '' %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
 <% end %>
-
-<%= render "users/shared/links" %>
