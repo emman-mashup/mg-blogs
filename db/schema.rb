@@ -12,10 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_18_092328) do
   create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.integer "up_votes", default: 0
-    t.integer "down_votes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
