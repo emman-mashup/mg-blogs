@@ -11,6 +11,9 @@ $blogsbg-color: #ebf0f4;
   margin: 0;
 }
 
+html {
+  height: 100%;
+}
 // @media only screen and (max-width: 768px) {
 //   * {
 //     background-color: black;
@@ -141,4 +144,16 @@ $blogsbg-color: #ebf0f4;
 
 .blogs-navbutton {
   margin-right: 2%;
+  display: flex;
+  flex-direction: row;
+}
+
+.login-link {
+  margin-top: 5%;
+  margin-right: 30%;
+}
+
+.body {
+  margin: 2%;
+  background-color: $blogsbg-color;
 }
