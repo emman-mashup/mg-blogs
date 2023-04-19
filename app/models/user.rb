@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validate :validate_username
   
   attr_writer :login
+  has_many :blogs, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   def login
     @login || self.username || self.email
