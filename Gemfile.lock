@@ -261,7 +261,7 @@ DEPENDENCIES
   jsonapi-serializer
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
-  sass-rails
+  sass-rails (~> 6.0)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

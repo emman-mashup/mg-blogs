@@ -153,7 +153,41 @@ html {
   margin-right: 30%;
 }
 
-.body {
-  margin: 2%;
-  background-color: $blogsbg-color;
+.createpost-button {
+  background-color: #6366f1;
+  color: white;
+  width: 240px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+}
+
+.popular-card {
+  width: 240px;
+  height: 190px;
+  
+}
+
+.trending-image{
+  width: 251px;
+  height: 170px;
+  z-index: 0;
+  border-radius: 2%;
+  image-rendering:-moz-crisp-edges;          /* Firefox        */
+  image-rendering:-o-crisp-edges;            /* Opera          */
+  image-rendering:-webkit-optimize-contrast; /* Safari         */
+  image-rendering:optimize-contrast;         /* CSS3 Proposed  */
+  -ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
+  &:hover {
+    -webkit-transform: scale(1.3);
+	  transform: scale(1.3);
+  }
+}
+
+.textover-image {
+  color: white;
+  z-index: 1;
+  margin-top: -12%;
+  margin-left: 5%;
+  font-size: 16px;
 }

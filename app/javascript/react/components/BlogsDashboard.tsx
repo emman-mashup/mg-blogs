@@ -36,13 +36,27 @@ const BlogsDashboard = ({
 
   return (
     <>
-      <h1>BLOGS DASHBOARD2121</h1>
-      {blogs.map((blog: Blog, index: number) => (
+    <div className="flex">
+      <div className="flex flex-col items-center justify-start space-y-1 p-4">
+        <p>↑</p>
+        <p>0</p>
+        <p>↓</p>
+      </div>
+
+      <div className="flex">
+        <h2>TITLE</h2>
+        <p>CONTENT</p>
+        {blogs.map((blog: Blog, index: number) => (
         <div className="blog-item" key={index}>
           <h2>{blog.title}</h2>
           <p>{blog.content}</p>
         </div>
       ))}
+      </div>
+
+    </div>
+      
+      
     </>
   );
 };
