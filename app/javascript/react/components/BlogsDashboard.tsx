@@ -36,9 +36,9 @@ const BlogsDashboard = ({
 
   return (
     <>
-      <h1>BLOGS DASHBOARD</h1>
+      <h1>BLOGS DASHBOARD2121</h1>
       {blogs.map((blog: Blog, index: number) => (
-        <div className="blog-item">
+        <div className="blog-item" key={index}>
           <h2>{blog.title}</h2>
           <p>{blog.content}</p>
         </div>
