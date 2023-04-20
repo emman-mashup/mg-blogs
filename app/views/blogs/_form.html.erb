@@ -1,40 +1,7 @@
-<%= stylesheet_link_tag('styles') %>
-
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="navbar-main">
-    <div class="blogslogo-style">
-      <%= image_tag "MG_BLOGS_LOGO.svg", :class => ""  %>
-    </div>
-    
-    <div class="form-group has-search">
-      <span class="fa fa-search form-control-feedback"></span>
-      <input type="text" class="form-control blogs-search" placeholder="Search Post">
-    </div>
-    
-    <div class="blogs-navbutton">
-    <% if user_signed_in? %>
-      <div class="dropdown">
-        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <%= current_user.username %>
-        </a>
-
-        <ul class="dropdown-menu">
-          <li><%= link_to "My Profile", users_path(@users), class:"dropdown-item" %></li>
-          <li><%= link_to "Sign out", signout_path, class:"dropdown-item" %></li>
-          <% else %>
-          <%= link_to "Login", user_session_path(@users), class: "login-link" %>
-          <%= button_to "Sign up", new_user_registration_path(@users), :method => :get, class: "blogs-loginbutton" %>
-        <% end %>
-        </ul>
-      </div> 
-    </div>
-  </div>
-</nav>
-
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 container">
     <%= form_with(model: blog) do |form| %>
-      <% if blog.errors.any? %>
+      <!-- <% if blog.errors.any? %>
         <div style="color: red">
           <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
           <ul>
@@ -44,14 +11,33 @@
           </ul>
         </div>
       <% end %>
+      -->
+      <div class="card-header">
+        <h4>Create Post</h4>
+        <%= link_to "Draft", '' , class: "post-link" %>
+        <button class="btn btn-primary post-button">12</button>
+      </div>
+      
+      <div class="card-body card">
+        <div class="form-group">
+          <%= label_tag :title %>
+          <%= form.text_field :name, class: "form-control input-post" %>
+        </div>
 
-      <div>
-        <%= form.submit %>
+        <div class="form-group">
+          <%= label_tag :body %>
+          <%= form.text_field :body, class: "form-control input-post" %>
+        </div>
+
+        <p>Tags</p>
+        <div class="card-footer">
+          <%= form.submit "Save as Draft", class: "btn btn-outline-primary" %>
+          <%= form.submit "Post", class: "btn btn-primary" %>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
-
 
 
   
