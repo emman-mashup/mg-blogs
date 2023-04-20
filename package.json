@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
+    "@heroicons/react": "^2.0.17",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@types/isomorphic-fetch": "^0.0.36",
@@ -22,5 +23,8 @@
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
     "typecheck": "tsc --project tsconfig.json --noEmit --watch --preserveWatchOutput"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
   }
 }

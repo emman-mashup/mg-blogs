@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url('https://fonts.cdnfonts.com/css/satoshi');
 
 //
 $darkbg-color: #17181c;
@@ -9,16 +9,8 @@ $blogsbg-color: #ebf0f4;
   font-family: satoshi;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
-
-html {
-  height: 100%;
-}
-// @media only screen and (max-width: 768px) {
-//   * {
-//     background-color: black;
-//   }
-// }
 
 .container-main {
   display: flex;
@@ -127,6 +119,7 @@ html {
   width: 90px;
   height: 40px;
   border-radius: 4px;
+  border: none;
 }
 
 .blogslogo-style {
@@ -142,12 +135,6 @@ html {
   background-color: #ecf1f3;
 }
 
-.blogs-navbutton {
-  margin-right: 2%;
-  display: flex;
-  flex-direction: row;
-}
-
 .login-link {
   margin-top: 5%;
   margin-right: 30%;
@@ -160,27 +147,6 @@ html {
   height: 40px;
   border: none;
   border-radius: 4px;
-}
-
-.popular-card {
-  width: 240px;
-  height: 190px;
-}
-
-.trending-image {
-  width: 251px;
-  height: 170px;
-  z-index: 0;
-  border-radius: 2%;
-  image-rendering: -moz-crisp-edges; /* Firefox        */
-  image-rendering: -o-crisp-edges; /* Opera          */
-  image-rendering: -webkit-optimize-contrast; /* Safari         */
-  image-rendering: optimize-contrast; /* CSS3 Proposed  */
-  -ms-interpolation-mode: nearest-neighbor; /* IE8+           */
-  &:hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-  }
 }
 
 .textover-image {
@@ -201,4 +167,58 @@ html {
 
 .has-search .form-control {
   padding-left: 8%;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-post {
+  background-color: #ecf1f3;
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+}
+
+.card-body {
+  margin-top: 2%;
+}
+
+.user-icon {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+}
+
+.navbar-button {
+  width: 40px;
+  height: 40px;
+  background: #ecf1f3;
+  border: none;
+  border-radius: 4px;
+}
+
+.vl {
+  margin-top: 20px;
+  height: 2px;
+  width: 40px;
+  border: 1px solid #d2d2d3;
+  transform: rotate(90deg);
+}
+
+.image-container {
+  width: 201px;
+  height: 120px;
+  > .image {
+    width: 100%;
+  }
+  &:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 }
