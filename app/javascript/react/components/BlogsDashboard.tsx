@@ -1,15 +1,15 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from "react";
 
 import {
   Blog,
   BlogBody,
   BlogAPIResponse,
   BlogListAPIResponse,
-} from '../types/blogTypes';
+} from "../types/blogTypes";
 
-import { fetchBlogs as defaultFetchBlogs } from '../../api/blog';
+import { fetchBlogs as defaultFetchBlogs } from "../../api/blog";
 
-import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/24/outline';
+import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/outline";
 
 export type BlogsDashboardProps = {
   fetchBlogs?: () => Promise<BlogListAPIResponse>;
@@ -19,7 +19,7 @@ const BlogsDashboard = ({
   fetchBlogs = defaultFetchBlogs,
 }: BlogsDashboardProps) => {
   const [blogs, setBlogs] = useState([] as Blog[]);
-  console.log('blog dashboard');
+  console.log("blog dashboard");
   useEffect(() => {
     getBlogs();
   }, []);
@@ -32,7 +32,7 @@ const BlogsDashboard = ({
       });
       setBlogs(responseBlogs);
     } catch {
-      console.error('failed to get blogs');
+      console.error("failed to get blogs");
     }
   };
 
