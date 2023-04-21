@@ -45,7 +45,9 @@ $blogsbg-color: #ebf0f4;
   justify-content: center;
   position: absolute;
   right: 0px;
-  width: 50%;
+  width: 60%;
+  background-color: white;
+  height: 100%;
 }
 
 .button-login {
@@ -143,7 +145,7 @@ $blogsbg-color: #ebf0f4;
 .createpost-button {
   background-color: #6366f1;
   color: white;
-  width: 240px;
+  width: 260px;
   height: 40px;
   border: none;
   border-radius: 4px;
@@ -174,15 +176,27 @@ $blogsbg-color: #ebf0f4;
   flex-direction: column;
 }
 
-.input-post {
+.input-title {
   background-color: #ecf1f3;
   width: 100%;
+}
+
+.input-body {
+  background-color: #ecf1f3;
+  width: 100%;
+  height: 320px;
 }
 
 .card-header {
   display: flex;
   margin-top: 5%;
   align-items: center;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .card-body {
@@ -221,4 +235,18 @@ $blogsbg-color: #ebf0f4;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+}
+
+.card-links {
+  color: grey;
+  font-size: 12.8px;
+  display: flex;
+}
+
+.left-link {
+  flex: 1;
+}
+
+.right-link {
+  flex: 2;
 }
