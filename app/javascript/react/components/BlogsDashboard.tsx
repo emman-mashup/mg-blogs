@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
+import { fetchCurrentUser } from "../../api/user";
 
 import {
   Blog,
@@ -7,24 +8,33 @@ import {
   BlogListAPIResponse,
 } from "../types/blogTypes";
 
-import { fetchBlogs as defaultFetchBlogs } from "../../api/blog";
+import { fetchAllBlogs as defaultFetchBlogs } from "../../api/blog";
 
 export type BlogsDashboardProps = {
-  fetchBlogs?: () => Promise<BlogListAPIResponse>;
+  fetchAllBlogs?: () => Promise<BlogListAPIResponse>;
 };
 
 const BlogsDashboard = ({
-  fetchBlogs = defaultFetchBlogs,
+  fetchAllBlogs = defaultFetchBlogs,
 }: BlogsDashboardProps) => {
   const [blogs, setBlogs] = useState([] as Blog[]);
-  console.log("blog dashboard");
+
   useEffect(() => {
     getBlogs();
+    getCurrentUser();
   }, []);
+
+  const getCurrentUser = async () => {
+    try {
+      return await fetchCurrentUser();
+    } catch (error) {
+      console.log("log error", error);
+    }
+  };
 
   const getBlogs = async () => {
     try {
-      const response = await fetchBlogs();
+      const response = await fetchAllBlogs();
       const responseBlogs = response.data.map((blog: BlogAPIResponse) => {
         return blog.attributes;
       });

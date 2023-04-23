@@ -1,9 +1,12 @@
 export type CommentAPIResponse = {
   id: string;
 
-  //TODO check this type usage
   type: string;
   attributes: Comment;
+};
+
+export type CommentListAPIResponse = {
+  data: CommentAPIResponse[];
 };
 
 export type Comment = {
@@ -13,7 +16,6 @@ export type Comment = {
   upVotes: number;
   downVotes: number;
 
-  //TODO check these
   userId: number;
   blogId: number;
   commentId: number;
@@ -22,5 +24,7 @@ export type Comment = {
 export type CommentBody = {
   comment: {
     content: string;
+    userId: number;
+    blogId: number;
   };
 };

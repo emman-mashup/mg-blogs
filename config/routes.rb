@@ -12,10 +12,25 @@ Rails.application.routes.draw do
     get "/signout", to: "devise/sessions#destroy", as: :signout
   end
 
-  # TODO remove this
-  resources :blogs
+  resources :blogs, only: [:index]
 
   namespace :api do
-    resources :blogs, only: %i[index]
+    resources :blogs, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
+      resources :comments, only: [:index, :show, :destroy]
+    end
+
+    resources :comments, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
+      resources :comments, only: [:index, :show, :destroy]
+    end
+
+    resources :current_users, only: [:index]
+
+    resources :users, only: [:index, :show], shallow: true do
+      resources :blogs, only: [:index, :show, :destroy]
+      resources :comments, only: [:index, :show, :destroy]
+    end
+
   end
+
+  # %i = non-interpolated array of symbols %i[method] == [:method]
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_18_092328) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_010424) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -24,13 +24,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_092328) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "up_votes"
-    t.integer "down_votes"
+    t.integer "up_votes", default: 0
+    t.integer "down_votes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.integer "blog_id", null: false
-    t.integer "comment_id", null: false
+    t.integer "comment_id"
     t.index ["blog_id"], name: "index_comments_on_blog_id"
     t.index ["comment_id"], name: "index_comments_on_comment_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_092328) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "firstname"
+    t.string "lastname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

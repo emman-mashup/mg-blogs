@@ -2,8 +2,8 @@ class CreateComments < ActiveRecord::Migration[7.0]
   def change
     create_table :comments do |t|
       t.text :content
-      t.integer :up_votes
-      t.integer :down_votes
+      t.integer :up_votes, default: 0
+      t.integer :down_votes, default: 0
 
       t.timestamps
     end
