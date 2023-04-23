@@ -26,5 +26,6 @@ export type CommentBody = {
     content: string;
     userId: number;
     blogId: number;
+    commentId: number;
   };
 };

@@ -26,5 +26,6 @@ export type BlogBody = {
   blog: {
     title: string;
     content: string;
+    userId: number;
   };
 };
