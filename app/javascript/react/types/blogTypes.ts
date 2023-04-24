@@ -1,3 +1,5 @@
+import { User } from './userTypes';
+
 export type BlogAPIResponse = {
   id: string;
 
@@ -14,18 +16,17 @@ export type Blog = {
   id: number;
   title: string;
   content: string;
-  formattedCreatedAt: string;
+  createdAt: string;
   upVotes: number;
   downVotes: number;
 
   //TODO check this
-  userId: number;
+  user: User;
 };
 
 export type BlogBody = {
   blog: {
     title: string;
     content: string;
-    userId: number;
   };
 };

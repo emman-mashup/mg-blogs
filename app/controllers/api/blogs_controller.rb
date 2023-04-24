@@ -4,7 +4,8 @@ module Api
         skip_before_action :authenticate_user!, :only => [:index, :show]
 
         def index
-            @blogs = params[:user_id] ? Blog.where(user_id: params[:user_id]) : Blog.all
+            # @blogs = params[:user_id] ? Blog.where(user_id: params[:user_id]) : Blog.all
+            @blogs = Blog.all
             render json: BlogSerializer.new(@blogs)
         end
 
@@ -17,7 +18,7 @@ module Api
             @blog.user_id = current_user.id
 
             if @blog.save
-                render json: BlogSerializer.new(@blog), status: :created, location: @blog
+                render json: BlogSerializer.new(@blog), status: :created
             else
                 render json: @blog.errors, status: :unprocessable_entity
             end
@@ -41,9 +42,7 @@ module Api
         end
 
         def blog_params
-            params.require(:blog).permit(:title, :content, :user_id).tap do |blog_params|
-                blog_params.require(:user_id)
-            end
+            params.require(:blog).permit(:title, :content, :user_id)
         end
     end
 end

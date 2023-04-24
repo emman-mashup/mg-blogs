@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   #TODO set to user homepage/feed instead of users list
   root "blogs#index"
 
-  resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
+  resources :users, only: [:index, :new, :edit, :create, :update, :destroy, :show]
 
   devise_scope :user do
     get "/signout", to: "devise/sessions#destroy", as: :signout
   end
 
-  resources :blogs, only: [:index]
+  resources :blogs, only: [:index, :new]
 
   namespace :api do
     resources :blogs, only: [:index, :show, :new, :edit, :create, :update, :destroy] do

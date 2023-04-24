@@ -1,7 +1,11 @@
-import { define } from "remount";
+import { define } from 'remount';
 
-import BlogsDashboard from "./components/BlogsDashboard";
+import BlogsDashboard from './components/BlogsDashboard';
+import PostForm from './components/PostForm';
+import UserProfile from './components/UserProfile';
 
 define({
-  "blogs-dashboard": BlogsDashboard
+  'blogs-dashboard': BlogsDashboard,
+  'post-form': PostForm,
+  'user-profile': UserProfile,
 });

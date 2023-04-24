@@ -69,4 +69,24 @@
   width: 100%;
   object-fit: cover;
 }
+.title-input {
+  background-color: #ecf1f3 !important;
+  width: 100% !important;
+}
+.body-input {
+  background-color: #ecf1f3 !important;
+  width: 100% !important;
+  height: 320px !important;
+}
+.header-card {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 /*# sourceMappingURL=assets/application.css.map */

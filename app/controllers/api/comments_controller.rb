@@ -4,7 +4,8 @@ module Api
         skip_before_action :authenticate_user!, :only => [:index, :show]
 
         def index
-            @comments = Comment.where(blog_id: @comment.blog_id)
+            # @comments = Comment.where(blog_id: @comment.blog_id)
+            @comments = Comment.all
             render json: CommentSerializer.new(@comments)
         end
 
@@ -42,7 +43,7 @@ module Api
 
         def comment_params
             params.require(:comment).permit(:content, :user_id, :blog_id, :comment_id).tap do |comment_params|
-                comment_params.require(:user_id, :blog_id)
+                comment_params.require(:blog_id)
             end
         end
     end

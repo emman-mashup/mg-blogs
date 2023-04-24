@@ -14,7 +14,7 @@
     <div class="d-flex">
       <div>
       <% if user_signed_in? %>
-        <%= button_to "+", new_blog_path(@blogs), :method => :get, class: "navbar-button" %>
+        <%= button_to "+", new_blog_path, :method => :get, class: "navbar-button" %>
         </div>
 
         <div class="vl"></div>
@@ -62,7 +62,7 @@
     
     <div class="col-4">
       <% if user_signed_in? %>
-        <%= button_to "Create Post", new_blog_path(@blogs), :method => :get, class: "createpost-button" %><hr>
+        <%= button_to "Create Post", new_blog_path, :method => :get, class: "createpost-button" %><hr>
       <% end %>
       
       <p class="h5">Popular Tags</p>
