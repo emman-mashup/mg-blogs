@@ -1,14 +1,14 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import { fetchCurrentUser } from '../../api/user';
-import Avatar from 'boring-avatars';
-import { User } from '../types/userTypes';
+import React, { useState, useEffect, ChangeEvent } from "react";
+import { fetchCurrentUser, fetchUserProfile } from "../../api/user";
+import Avatar from "boring-avatars";
+import { User, UserAPIResponse } from "../types/userTypes";
 import {
   Blog,
   BlogBody,
   BlogAPIResponse,
   BlogListAPIResponse,
-} from '../types/blogTypes';
-import { fetchAllBlogs as defaultFetchBlogs } from '../../api/blog';
+} from "../types/blogTypes";
+import { fetchAllBlogs as defaultFetchBlogs } from "../../api/blog";
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -16,17 +16,23 @@ import {
   ArrowSmallRightIcon,
   PencilIcon,
   TrashIcon,
-} from '@heroicons/react/24/outline';
-import '../styles.css';
+} from "@heroicons/react/24/outline";
+import "../styles.css";
+import TimeAgo from "react-timeago";
 
 export type BlogsDashboardProps = {
   fetchAllBlogs?: () => Promise<BlogListAPIResponse>;
+};
+
+export type UserProfileProps = {
+  fetchUserProfile?: () => Promise<UserAPIResponse>;
 };
 
 const UserProfile = ({
   fetchAllBlogs = defaultFetchBlogs,
 }: BlogsDashboardProps) => {
   const [blogs, setBlogs] = useState([] as Blog[]);
+  const [user, setUser] = useState([] as User[]);
 
   useEffect(() => {
     getBlogs();
@@ -37,8 +43,9 @@ const UserProfile = ({
     try {
       const user = await fetchCurrentUser();
       console.log(user.id);
+      // setUser(user);
     } catch (error) {
-      console.log('log error', error);
+      console.log("log error", error);
     }
   };
 
@@ -51,7 +58,7 @@ const UserProfile = ({
       setBlogs(responseBlogs);
       console.log(responseBlogs);
     } catch {
-      console.error('failed to get blogs');
+      console.error("failed to get blogs");
     }
   };
 
@@ -86,19 +93,21 @@ const UserProfile = ({
                   size={40}
                   variant="beam"
                   colors={[
-                    '#92A1C6',
-                    '#146A7C',
-                    '#F0AB3D',
-                    '#C271B4',
-                    '#C20D90',
+                    "#92A1C6",
+                    "#146A7C",
+                    "#F0AB3D",
+                    "#C271B4",
+                    "#C20D90",
                   ]}
                 />
                 <h5 className="spacing">
-                  {blog['user']['firstname']} {blog['user']['lastname']}
+                  {blog["user"]["firstname"]} {blog["user"]["lastname"]}
                 </h5>
               </div>
 
-              <p className="spacing">{blog.createdAt}</p>
+              <p className="spacing">
+                <TimeAgo date={blog.createdAt} />
+              </p>
             </div>
 
             <div>
