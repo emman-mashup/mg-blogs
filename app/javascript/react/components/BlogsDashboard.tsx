@@ -26,7 +26,8 @@ const BlogsDashboard = ({
 
   const getCurrentUser = async () => {
     try {
-      return await fetchCurrentUser();
+      const user = await fetchCurrentUser();
+      console.log(user);
     } catch (error) {
       console.log("log error", error);
     }

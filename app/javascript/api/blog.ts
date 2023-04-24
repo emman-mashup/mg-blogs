@@ -39,13 +39,14 @@ export const fetchBlog = async (blog_id: number): Promise<BlogAPIResponse> => {
   return response.json();
 }
 
-export const createBlog = async (body: BlogBody, user: User): Promise<BlogAPIResponse> => {
+export const createBlog = async (body: BlogBody): Promise<BlogAPIResponse> => {
   const endpoint = "/api/blogs";
   const headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
   };
-  body.blog.userId = user.id;
+  //user.attributes.id -> userAPIresponse
+  // body.blog.userId = user.id;
 
   const serializedBody = JSON.stringify(body);
   const response = await fetch(endpoint, {
