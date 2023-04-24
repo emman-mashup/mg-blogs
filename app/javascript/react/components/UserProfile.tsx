@@ -23,7 +23,7 @@ export type BlogsDashboardProps = {
   fetchAllBlogs?: () => Promise<BlogListAPIResponse>;
 };
 
-const BlogsDashboard = ({
+const UserProfile = ({
   fetchAllBlogs = defaultFetchBlogs,
 }: BlogsDashboardProps) => {
   const [blogs, setBlogs] = useState([] as Blog[]);
@@ -36,7 +36,7 @@ const BlogsDashboard = ({
   const getCurrentUser = async () => {
     try {
       const user = await fetchCurrentUser();
-      console.log(user);
+      console.log(user.id);
     } catch (error) {
       console.log('log error', error);
     }
@@ -123,13 +123,4 @@ const BlogsDashboard = ({
   );
 };
 
-export default BlogsDashboard;
-
-{
-  /* {blogs.map((blog: Blog, index: number) => (
-            <div className="blog-item" key={index}>
-              <h2>{blog.title}</h2>
-              <p>{blog.content}</p>
-            </div>
-          ))} */
-}
+export default UserProfile;
