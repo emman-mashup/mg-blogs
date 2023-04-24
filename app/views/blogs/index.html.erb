@@ -2,66 +2,113 @@
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="navbar-main">
-    <div class="blogslogo-style">
+    <%= link_to root_path, class:"blogslogo-style" do %>
       <%= image_tag "MG_BLOGS_LOGO.svg", :class => ""  %>
-    </div>
+    <% end %>
     
     <div class="form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
       <input type="text" class="form-control blogs-search" placeholder="Search Post">
     </div>
     
-    <div class="blogs-navbutton">
+    <div class="d-flex">
+      <div>
       <% if user_signed_in? %>
-        <%= current_user.username %>
-        <%= link_to "Sign out", signout_path %>
-      <% else %>
+        <%= button_to "+", new_blog_path(@blogs), :method => :get, class: "navbar-button" %>
+        </div>
 
-      <%= link_to "Login", user_session_path(@users), class: "login-link" %>
-      <%= button_to "Sign up", new_user_registration_path(@users), :method => :get, class: "blogs-loginbutton" %>
+        <div class="vl"></div>
       <% end %>
+
+      <div class="d-flex">
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <%= image_tag "sasuke.jpg", :class => "user-icon" %>
+          <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.username %>
+          </a>
+    
+          <ul class="dropdown-menu">
+            <li><%= link_to "My Profile", users_path(@users), class:"dropdown-item" %></li>
+            <li><%= link_to "Sign out", signout_path, class:"dropdown-item" %></li>
+
+            <% else %>
+            <%= link_to "Login", user_session_path(@users), class: "login-link" %>
+            <%= button_to "Sign up", new_user_registration_path(@users), :method => :get, class: "blogs-loginbutton" %>
+            <% end %>
+          </ul>
+        </div> 
+      </div>
     </div>
   </div>
 </nav>
 
-<div class="body">
-  <div class="row mt-3">
-    <div class="col">
-      <p class="h4">Trending today</p>
-    </div>
-  </div>
+<div class="container mt-5" style="max-width:840px; padding: 0">
+  <p class="h4">Trending today</p>
 
-  <div class="row">
-    <div class="col-sm-3">ez</div>
-    <div class="col-sm-3">ez</div>
-    <div class="col-sm-3">ez</div>
-    <div class="col-sm-3">ez</div>
+  <div class="d-flex gap-3 justify-content-center">
+    <div class="image-container"><%= image_tag "Image1.png", :class => "image" %><p class="textover-image">Become a unicorn</p></div>
+    <div class="image-container"><%= image_tag "Image2.png", :class => "image" %><p class="textover-image">Userflow Brainstorming</p></div>
+    <div class="image-container"><%= image_tag "Image3.png", :class => "image" %><p class="textover-image">Client Meeting</p></div>
+    <div class="image-container"><%= image_tag "Image4.png", :class => "image" %><p class="textover-image">Play with your friends</p></div>
   </div><hr>
 
-  <div class="row mt-3">
-    <div class="col">
-      <p class="h4">Recent posts</p>
-    </div>
-  </div>
+  <p class="h4">Recent posts</p>
 
   <div class="row">
-    <div class="col-8">LEFT</div>
+    <div class="col-8">
+      <blogs-dashboard></blogs-dashboard>
+    </div>
+    
     <div class="col-4">
+      <% if user_signed_in? %>
+        <%= button_to "Create Post", new_blog_path(@blogs), :method => :get, class: "createpost-button" %><hr>
+      <% end %>
+      
       <p class="h5">Popular Tags</p>
-
       <div class="card">
         <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item border-bottom-0">@design-talks</li>
+          <li class="list-group-item border-bottom-0">@react</li>
+          <li class="list-group-item border-bottom-0">@ruby</li>
+          <li class="list-group-item border-bottom-0">@case-studies</li>
+          <li class="list-group-item border-bottom-0">@tech-stack</li>
+          <li class="list-group-item">@bootcamp</li>
         </ul>
       </div>
+
+      <div class="card-links">
+        <div class="right-link">
+          <p class="p-spacing">User Agreement</p>
+          <p>Content Policy</p>
+        </div>
+        
+        <div class="left-link">
+          <p class="p-spacing">Privacy Policy</p>
+          <p>Moderator Code of Conduct</p>
+        </div>
+      </div><hr>
+
+      <div class="card-links">
+        <div class="right-link">
+          <p class="p-spacing">English</p>
+          <p class="p-spacing">Français</p>
+          <p class="p-spacing">Italiano</p>
+        </div>
+
+        <div class="left-link">
+          <p class="p-spacing">Deustch</p>
+          <p class="p-spacing">Español</p>
+          <p class="p-spacing">Português</p>
+        </div>
+        
+      </div><hr>
+
+      <p>Mashup Garage Blogs © 2023</p>
+      <p>All rights reserved.</p>
     </div>
   </div>
-
 </div>
 
 
-<blogs-dashboard></blogs-dashboard>
+

@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url('https://fonts.cdnfonts.com/css/satoshi');
 
 //
 $darkbg-color: #17181c;
@@ -9,16 +9,8 @@ $blogsbg-color: #ebf0f4;
   font-family: satoshi;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
-
-html {
-  height: 100%;
-}
-// @media only screen and (max-width: 768px) {
-//   * {
-//     background-color: black;
-//   }
-// }
 
 .container-main {
   display: flex;
@@ -53,7 +45,9 @@ html {
   justify-content: center;
   position: absolute;
   right: 0px;
-  width: 50%;
+  width: 60%;
+  background-color: white;
+  height: 100%;
 }
 
 .button-login {
@@ -127,6 +121,7 @@ html {
   width: 90px;
   height: 40px;
   border-radius: 4px;
+  border: none;
 }
 
 .blogslogo-style {
@@ -142,18 +137,124 @@ html {
   background-color: #ecf1f3;
 }
 
-.blogs-navbutton {
-  margin-right: 2%;
-  display: flex;
-  flex-direction: row;
-}
-
 .login-link {
   margin-top: 5%;
   margin-right: 30%;
 }
 
-.body {
-  margin: 2%;
-  background-color: $blogsbg-color;
+.createpost-button {
+  background-color: #6366f1;
+  color: white;
+  width: 260px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+}
+
+.textover-image {
+  color: white;
+  z-index: 1;
+  margin-top: -12%;
+  margin-left: 5%;
+  font-size: 16px;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  height: 40%;
+  bottom: 12px;
+  margin-left: 10px;
+  color: rgba(17, 18, 21, 0.32);
+}
+
+.has-search .form-control {
+  padding-left: 8%;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-title {
+  background-color: #ecf1f3;
+  width: 100%;
+}
+
+.input-body {
+  background-color: #ecf1f3;
+  width: 100%;
+  height: 320px;
+  padding-top: 0;
+  padding-left: 0;
+}
+
+.card-header {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.card-body {
+  margin-top: 2%;
+}
+
+.user-icon {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+}
+
+.navbar-button {
+  width: 40px;
+  height: 40px;
+  background: #ecf1f3;
+  border: none;
+  border-radius: 4px;
+}
+
+.vl {
+  margin-top: 20px;
+  height: 2px;
+  width: 40px;
+  border: 1px solid #d2d2d3;
+  transform: rotate(90deg);
+}
+
+.image-container {
+  width: 201px;
+  height: 120px;
+  > .image {
+    width: 100%;
+  }
+  &:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+.card-links {
+  color: grey;
+  font-size: 12.8px;
+  display: flex;
+  margin-top: 16px;
+}
+
+.left-link {
+  flex: 2;
+}
+
+.right-link {
+  flex: 2;
+}
+
+.p-spacing {
+  margin: 0;
+  margin-bottom: 8px;
 }
