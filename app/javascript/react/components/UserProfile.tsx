@@ -72,7 +72,7 @@ const UserProfile = ({
         .map((blog: Blog, index: number) => (
           <div className="post-card rounded-3 bg-white mt-2" key={index}>
             <div className="vote container left">
-              <div className="left-right">
+              <div className="left-up">
                 <ArrowUpIcon className="voteButtons" />
                 <p className="spacing">1.1k</p>
                 <ArrowDownIcon className="voteButtons" />

@@ -70,7 +70,7 @@ const ShowPost = ({
       {blogs.reverse().map((blog: Blog, index: number) => (
         <div className="post-card rounded-3 bg-white mt-2" key={index}>
           <div className="vote container left">
-            <div className="left-right">
+            <div className="left-up">
               <button className="border-0">
                 <ArrowUpIcon className="voteButtons" />
               </button>

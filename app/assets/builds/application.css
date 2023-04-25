@@ -1,14 +1,4 @@
 /* app/javascript/react/styles.css */
-.vote {
-  background-color: #ecf1f3;
-}
-.voteButtons {
-  height: 20px;
-  width: 20px;
-}
-.voteButtons:hover {
-  color: red;
-}
 .post-card {
   display: flex;
   background-color: white;
@@ -22,11 +12,15 @@
 .post-card:hover {
   border-color: gray;
 }
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+.vote {
+  background-color: #ecf1f3;
+}
+.voteButtons {
+  height: 20px;
+  width: 20px;
+}
+.voteButtons:hover {
+  color: red;
 }
 .left {
   display: flex;
@@ -40,8 +34,11 @@
 .right {
   flex: 12;
 }
-.spacing {
-  margin: 0;
+.left-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 .left-down {
   display: flex;
@@ -49,11 +46,19 @@
   align-items: center;
   gap: 1rem;
 }
-.left-right {
+.card-header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.avatar-style {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+.spacing {
+  margin: 0;
 }
 .card-image {
   height: 200px;
