@@ -17,6 +17,10 @@
   border-radius: 4px;
   height: auto;
   width: 100%;
+  cursor: pointer;
+}
+.post-card:hover {
+  border-color: gray;
 }
 .card-header {
   display: flex;

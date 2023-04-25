@@ -25,16 +25,14 @@ export type BlogsDashboardProps = {
   fetchAllBlogs?: () => Promise<BlogListAPIResponse>;
 };
 
-const BlogsDashboard = ({
+const ShowPost = ({
   fetchAllBlogs = defaultFetchBlogs,
 }: BlogsDashboardProps) => {
   const [blogs, setBlogs] = useState([] as Blog[]);
-  // const [blogsID, setBlogsID] = useState('');
 
   useEffect(() => {
     getBlogs();
     getCurrentUser();
-    // getBlogsID();
   }, []);
 
   const getCurrentUser = async () => {
@@ -59,28 +57,9 @@ const BlogsDashboard = ({
     }
   };
 
-  // const getBlogsID = async () => {
-  //   try {
-  //     const responseblogsid = await fetchAllBlogs();
-  //     const responseBlogsID = responseblogsid.data.map(
-  //       (blog: BlogAPIResponse) => {
-  //         return blog.attributes.id;
-  //       }
-  //     );
-  //     setBlogsID(responseBlogsID.toString());
-  //     console.log('A', responseBlogsID);
-  //   } catch {
-  //     console.error('failed to get blogs');
-  //   }
-  // };
-
   const buttonToPost = () => {
-    window.location.href = 'blogs/edit';
+    window.location.href = 'blogs/edit/';
   };
-
-  // const buttonToShow = () => {
-  //   window.location.href = `blogs/${blogsID}`;
-  // };
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -89,11 +68,7 @@ const BlogsDashboard = ({
   return (
     <>
       {blogs.reverse().map((blog: Blog, index: number) => (
-        <div
-          className="post-card rounded-3 bg-white mt-2"
-          key={index}
-          // onClick={buttonToShow}
-        >
+        <div className="post-card rounded-3 bg-white mt-2" key={index}>
           <div className="vote container left">
             <div className="left-right">
               <button className="border-0">
@@ -193,7 +168,7 @@ const BlogsDashboard = ({
   );
 };
 
-export default BlogsDashboard;
+export default ShowPost;
 
 {
   /* {blogs.map((blog: Blog, index: number) => (

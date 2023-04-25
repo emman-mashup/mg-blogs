@@ -68,9 +68,9 @@ const UserProfile = ({
         .filter((blog) => {
           if (blog?.user.id.toString() === userID.toString()) return blog;
         })
+        .reverse()
         .map((blog: Blog, index: number) => (
           <div className="post-card rounded-3 bg-white mt-2" key={index}>
-            {/* votes */}
             <div className="vote container left">
               <div className="left-right">
                 <ArrowUpIcon className="voteButtons" />

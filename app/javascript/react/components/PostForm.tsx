@@ -32,6 +32,7 @@ const PostForm = ({ createBlog = defaultCreateBlog }: PostFormProps) => {
       const response = await createBlog(body);
       if (response) {
         window.location.href = '/';
+        alert('Post successfully created!');
       }
       console.log(response);
     } catch (error) {

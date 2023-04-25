@@ -4,6 +4,7 @@
 $darkbg-color: #17181c;
 $button-color: #6366f1;
 $blogsbg-color: #ebf0f4;
+$whitebg-color: #ffffff;
 
 * {
   font-family: satoshi;
@@ -47,7 +48,7 @@ $blogsbg-color: #ebf0f4;
   position: absolute;
   right: 0px;
   width: 60%;
-  background-color: white;
+  background-color: $whitebg-color;
   height: 100%;
 }
 
@@ -57,7 +58,7 @@ $blogsbg-color: #ebf0f4;
   height: 40px;
   border-radius: 4px;
   border: none;
-  color: #ffffff;
+  color: $whitebg-color;
   margin-top: 16px;
   transition: 0.3s;
   &:hover {
@@ -119,8 +120,8 @@ $blogsbg-color: #ebf0f4;
 }
 
 .blogs-loginbutton {
-  background-color: #6366f1;
-  color: white;
+  background-color: $button-color;
+  color: $whitebg-color;
   width: 90px;
   height: 40px;
   border-radius: 4px;
@@ -146,8 +147,8 @@ $blogsbg-color: #ebf0f4;
 }
 
 .createpost-button {
-  background-color: #6366f1;
-  color: white;
+  background-color: $button-color;
+  color: $whitebg-color;
   width: 260px;
   height: 40px;
   border: none;
@@ -155,7 +156,7 @@ $blogsbg-color: #ebf0f4;
 }
 
 .textover-image {
-  color: white;
+  color: $whitebg-color;
   z-index: 1;
   margin-top: -12%;
   margin-left: 5%;

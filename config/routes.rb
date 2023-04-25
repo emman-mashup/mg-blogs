@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get "/signout", to: "devise/sessions#destroy", as: :signout
   end
 
-  resources :blogs, only: [:index, :new]
+  resources :blogs, only: [:index, :new, :edit, :show]
 
   namespace :api do
     resources :blogs, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
