@@ -1,14 +1,14 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { fetchCurrentUser } from "../../api/user";
-import Avatar from "boring-avatars";
-import { User } from "../types/userTypes";
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { fetchCurrentUser } from '../../api/user';
+import Avatar from 'boring-avatars';
+import { User } from '../types/userTypes';
 import {
   Blog,
   BlogBody,
   BlogAPIResponse,
   BlogListAPIResponse,
-} from "../types/blogTypes";
-import { fetchAllBlogs as defaultFetchBlogs } from "../../api/blog";
+} from '../types/blogTypes';
+import { fetchAllBlogs as defaultFetchBlogs } from '../../api/blog';
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -16,9 +16,10 @@ import {
   ArrowSmallRightIcon,
   PencilIcon,
   TrashIcon,
-} from "@heroicons/react/24/outline";
-import "../styles.css";
-import TimeAgo from "react-timeago";
+} from '@heroicons/react/24/outline';
+import '../styles.css';
+import TimeAgo from 'react-timeago';
+import { Modal, Button } from 'react-bootstrap';
 
 export type BlogsDashboardProps = {
   fetchAllBlogs?: () => Promise<BlogListAPIResponse>;
@@ -39,7 +40,7 @@ const BlogsDashboard = ({
       const user = await fetchCurrentUser();
       console.log(user);
     } catch (error) {
-      console.log("log error", error);
+      console.log('log error', error);
     }
   };
 
@@ -52,9 +53,17 @@ const BlogsDashboard = ({
       setBlogs(responseBlogs);
       console.log(responseBlogs);
     } catch {
-      console.error("failed to get blogs");
+      console.error('failed to get blogs');
     }
   };
+
+  const buttonToPost = () => {
+    window.location.href = 'blogs/new';
+  };
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -63,20 +72,54 @@ const BlogsDashboard = ({
           {/* votes */}
           <div className="vote container left">
             <div className="left-right">
-              <ArrowUpIcon className="voteButtons" />
+              <button className="border-0">
+                <ArrowUpIcon className="voteButtons" />
+              </button>
+
               <p className="spacing">1.1k</p>
-              <ArrowDownIcon className="voteButtons" />
+
+              <button className="border-0">
+                <ArrowDownIcon className="voteButtons" />
+              </button>
             </div>
 
             <div className="left-down">
               <div className="chat-style">
-                <ChatBubbleLeftRightIcon className="voteButtons" />
+                <button className="border-0">
+                  <ChatBubbleLeftRightIcon className="voteButtons" />
+                </button>
+
                 <p className="spacing">24</p>
               </div>
 
-              <ArrowSmallRightIcon className="voteButtons" />
-              <PencilIcon className="voteButtons" />
-              <TrashIcon className="voteButtons" />
+              <button className="border-0">
+                <ArrowSmallRightIcon className="voteButtons" />
+              </button>
+
+              <button onClick={buttonToPost} className="border-0">
+                <PencilIcon className="voteButtons" />
+              </button>
+
+              <button className="border-0" onClick={handleShow}>
+                <TrashIcon className="voteButtons" />
+              </button>
+
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>You are deleting this post</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Are you sure you want to delete this post?
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="primary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button variant="danger" onClick={handleClose}>
+                    Delete
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </div>
           </div>
 
@@ -87,15 +130,15 @@ const BlogsDashboard = ({
                   size={40}
                   variant="beam"
                   colors={[
-                    "#92A1C6",
-                    "#146A7C",
-                    "#F0AB3D",
-                    "#C271B4",
-                    "#C20D90",
+                    '#92A1C6',
+                    '#146A7C',
+                    '#F0AB3D',
+                    '#C271B4',
+                    '#C20D90',
                   ]}
                 />
                 <h5 className="spacing">
-                  {blog["user"]["firstname"]} {blog["user"]["lastname"]}
+                  {blog['user']['firstname']} {blog['user']['lastname']}
                 </h5>
               </div>
 

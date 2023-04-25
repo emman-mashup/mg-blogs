@@ -12,6 +12,7 @@ $blogsbg-color: #ebf0f4;
   box-sizing: border-box;
 }
 
+//START OF LOGIN PAGE
 .container-main {
   display: flex;
   height: 100%;
@@ -107,7 +108,9 @@ $blogsbg-color: #ebf0f4;
   text-align: center;
   margin-top: 5%;
 }
+// END OF LOGIN PAGE
 
+// START OF BLOGS PAGE
 .navbar-main {
   display: flex;
   justify-content: space-evenly;
@@ -239,3 +242,4 @@ $blogsbg-color: #ebf0f4;
   margin: 0;
   margin-bottom: 8px;
 }
+//END OF BLOGS PAGE
