@@ -95,7 +95,7 @@ const BlogsDashboard = ({
           // onClick={buttonToShow}
         >
           <div className="vote container left">
-            <div className="left-right">
+            <div className="left-up">
               <button className="border-0">
                 <ArrowUpIcon className="voteButtons" />
               </button>
@@ -162,7 +162,8 @@ const BlogsDashboard = ({
                   ]}
                 />
                 <h5 className="spacing">
-                  {blog['user']['firstname']} {blog['user']['lastname']}
+                  {/* {blog['user']['firstname']} {blog['user']['lastname']} */}
+                  {blog['user']['username']}
                 </h5>
               </div>
 
